@@ -1,5 +1,5 @@
 class Api::V1::GreetingCardsController < ApplicationController
-    before_action :find_greeting_card, only: [:update, :show]
+    before_action :find_greeting_card, only: [:update, :show, :destory]
     def index
         @greeting_cards = GreetingCard.all
         render json: @greeting_cards
@@ -9,6 +9,11 @@ class Api::V1::GreetingCardsController < ApplicationController
        render json: @greeting_card
     end
 
+    def create
+      @greeting_card = GreetingCard.create!(greeting_card_params)
+      json_response(@greeting_card, :created)
+    end
+
     def update
         @greeting_card.update(greeting_card_params)
          if @greeting_card.save
@@ -16,6 +21,11 @@ class Api::V1::GreetingCardsController < ApplicationController
          else
             render json: { errors: @greeting_card.errors.full_messages }, status: :unprocessible_entity
         end
+    end
+
+    def destroy
+      @greeting_card.destroy
+      head :no_content
     end
 
     private
