@@ -1,10 +1,10 @@
 class Api::V1::GreetingCardsController < ApplicationController
-    before_action :find_greeting_card, only: [:update, :show, :destory]
+    before_action :find_greeting_card, only: [:update, :show, :destroy]
     def index
         @greeting_cards = GreetingCard.all
         render json: @greeting_cards
     end
-    
+
     def show
        render json: @greeting_card
     end
