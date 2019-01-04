@@ -11,7 +11,7 @@ class Api::V1::GreetingCardsController < ApplicationController
 
     def create
       @greeting_card = GreetingCard.create!(greeting_card_params)
-      json_response(@greeting_card, :created)
+      render json: @greeting_card
     end
 
     def update
