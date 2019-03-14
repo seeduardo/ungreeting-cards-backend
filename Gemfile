@@ -27,8 +27,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
-# Basically, CORS is a security feature that prevents API calls from unknown origins. 
-# For example, if someone tried to use some malicious JavaScript to steal your bank information and 
+# Basically, CORS is a security feature that prevents API calls from unknown origins.
+# For example, if someone tried to use some malicious JavaScript to steal your bank information and
 # your bank allowed API calls from anywhere, this could be a bad news bears™️ situation.
 
 gem 'active_model_serializers'
@@ -48,3 +48,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "actionview", ">= 5.2.2.1"
+gem "railties", ">= 5.2.2.1"
